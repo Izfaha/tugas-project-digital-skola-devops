@@ -13,7 +13,12 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN python -m pip install --no-cache-dir --upgrade "pip>=26.2.0" \
-    && python -m pip install --no-cache-dir -r requirements.txt
+    && python -m pip install --no-cache-dir -r requirements.txt \
+    && python -m pip install --no-cache-dir --upgrade \
+        "msgpack>=1.2.3" \
+        "setuptools>=84.1.0" \
+        "urllib3>=2.8.0" \
+    && python -m pip check
 
 COPY --chown=app:app app ./app
 
