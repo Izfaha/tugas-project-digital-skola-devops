@@ -12,13 +12,11 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN python -m pip install --no-cache-dir --upgrade "pip>=26.2.0" \
+RUN python -m pip install --no-cache-dir --upgrade pip \
     && python -m pip install --no-cache-dir -r requirements.txt \
-    && python -m pip install --no-cache-dir --upgrade \
-        "msgpack>=1.2.3" \
-        "setuptools>=84.1.0" \
-        "urllib3>=2.8.0" \
-    && python -m pip check
+    && python -m pip check \
+    && python -m pip uninstall -y pip \
+    && rm -rf /usr/local/lib/python3.12/ensurepip
 
 COPY --chown=app:app app ./app
 
@@ -26,4 +24,4 @@ USER app
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
