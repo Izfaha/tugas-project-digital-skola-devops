@@ -13,7 +13,8 @@ RUN apt-get update \
 WORKDIR /app
 
 COPY requirements.txt .
-RUN python -m pip install --no-cache-dir -r requirements.txt
+RUN python -m pip install --no-cache-dir --upgrade "pip>=26.2.0" \
+    && python -m pip install --no-cache-dir -r requirements.txt
 
 COPY --chown=app:app app ./app
 
