@@ -1,0 +1,6 @@
+projectKey=digital-skola-tugas-31
+serverUrl=https://sonarqube.izfaha.my.id
+serverVersion=26.6.0.123539
+dashboardUrl=https://sonarqube.izfaha.my.id/dashboard?id=digital-skola-tugas-31
+ceTaskId=8d02744e-f32c-4a33-aafe-bb7c60b2e49e
+ceTaskUrl=https://sonarqube.izfaha.my.id/api/ce/task?id=8d02744e-f32c-4a33-aafe-bb7c60b2e49e
